@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    height: 357px;
+    width: 352px;
+}
+.grid-item{
+    background-color: blue;
+    height: 20px;
+    width: 20px;
+    margin: .6px;
+}
