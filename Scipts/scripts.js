@@ -1,24 +1,25 @@
-
-function createchart (){
-    //modify to allow the user to size the grid. For ex - Enters 16 -> creates a 16 by 16 grid
+     userChart();
+function userChart(sides=16){   
     const cont = document.querySelector(".container");
-    for(let i = 0; i <= 255; i++){
+    for(let i = 0; i < sides*sides; i++){
         const div = document.createElement('div')
         div.classList.add('grid-item')
         cont.appendChild(div);
-    }
 }
-createchart();
-
     const divs = document.querySelectorAll('.grid-item');
     divs.forEach(div => {
         div.addEventListener("mouseover", () => div.style.backgroundColor = "black")
-    });
+});
+    cont.style["grid-template-columns"] = `repeat(${sides},1fr)`;
+    cont.style["grid-template-rows"] = `repeat(${sides},1fr)`;
+}
     
-function reload(){
-    //functionality not created yet
+function reloadpage(){
     let newgrid = prompt("how big do you want your new grid to be?");
-    window.location.reload();
+    document.querySelectorAll(".grid-item").forEach((element)=>{
+        element.remove();
+    })
+    userChart(newgrid);
 }
 
 
